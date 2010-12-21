@@ -11,13 +11,6 @@ body {
 .main{
   padding-top: 10px;
 }
-.status {
-  width: 70%;
-}
-
-.dashboard{
-  width: 30%;
-}
 
 .side{
 }
@@ -32,8 +25,5 @@ body {
 
 .column{
   display: inline;
-}
-
-.header {
 }
 
