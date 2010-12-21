@@ -1,0 +1,39 @@
+
+body {
+  font-family: Arial, "MS Trebuchet", sans-serif;
+  background: rgb(147, 209, 249);
+}
+
+.container{
+
+}
+
+.main{
+  padding-top: 10px;
+}
+.status {
+  width: 70%;
+}
+
+.dashboard{
+  width: 30%;
+}
+
+.side{
+}
+
+.box{
+  padding: 10px;
+  background: white;
+  margin: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+}
+
+.column{
+  display: inline;
+}
+
+.header {
+}
+
