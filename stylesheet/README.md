@@ -9,16 +9,16 @@ This is just a sample app to practice how to organize javascript
 
 ## List of Questions while building.
 
-### pros and cons of Object creation methods
+### pros and cons of various Object creation methods
 
-    var Tweets = {
+    var Tweets1 = {
       collections:[]
     }
     Tweets.add = function (tweet) {
       this.collections.push(tweet);
       EventHandler.trigger("added");
     }
-    Tweets().add("hello")
+    Tweets1().add("hello")
 
 - Does NOT raise error if event_handler.js is not included before tweets.js
 - "collections" is public 
@@ -39,7 +39,8 @@ vs
 
 - Need to instantiate all the time.
 - Can create only instance methods.
-- Constructor
+- Constructor pattern
+- This is a bit wired because calling "new" with "Tweets2", rather than "Tweets2()"
 
 vs
 
@@ -77,27 +78,72 @@ vs
     }
     Tweets.add("hello")
 
-- Same as Tweets
+- Same as Tweets1, shorter
 
 vs
 
-Tweets5 = (function(){
-  var collections = [];
-  return {
-    add: function (tweet) {
-      collections.push(tweet);
-      EventHandler.trigger("added");
-    },
-    last: function () {
-      return collections.slice(-1)[0];
-    },
-    size: function () {
-      return collections.length;
-    }
-  }
-})();
+    Tweets5 = (function(){
+      var collections = [];
+      return {
+        add: function (tweet) {
+          collections.push(tweet);
+          EventHandler.trigger("added");
+        },
+        last: function () {
+          return collections.slice(-1)[0];
+        },
+        size: function () {
+          return collections.length;
+        }
+      }
+    })();
 
 - Singleton with private variables (collections)
 
+### Javascript object construction, the Mark's way
+
+
+    ///////// SINGLETON /////////////
+
+    Tweets = (function(){
+  
+      var this_is_private = 4;
+  
+      function thisIsPrivate(){}
+  
+      var obj = {
+        somePublicMethod = function(){}
+      }
+  
+      return obj;
+    })();
+
+    Tweets.somePublicMethod();
+
+
+    ///////// Multiple objects /////////////
+
+    Tweet = (function(){
+  
+      var this_is_private = 4;
+  
+      function thisIsPrivate(){}
+  
+      var klass = function(){
+        // init here
+      };
+      klass.prototype = {
+        somePublicMethod = function(){}
+      };
+  
+      return klass;
+    })();
+
+    var tweet = new Tweet();
+    tweet.somePublicMethod();
+
+- Basically same as Tweets5 pattern.
+- Can have private variables and methods
+- function is only executed once.
 
 
