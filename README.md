@@ -45,7 +45,6 @@ This is just a sample app to practice how to organize javascript
     }
     Tweets1().add("hello")
 
-- Does NOT raise error if event_handler.js is not included before tweets.js
 - "collections" is public 
 - Singleton (Tweets is already instantiated)
 
@@ -63,8 +62,8 @@ vs
     tweets2.add("hello")
 
 - Need to instantiate all the time.
-- Can create only instance methods.
-- Constructor pattern
+- Can create only instance methods (via prototype).
+- Constructor pattern.
 - This is a bit wired because calling "new" with "Tweets2", rather than "Tweets2()"
 
 vs
