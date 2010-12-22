@@ -9,3 +9,7 @@ Tweets.add = function (tweet) {
 Tweets.last = function () {
   return this.collections.slice(-1)[0];
 }
+
+Tweets.size = function () {
+  return this.collections.length;
+}
