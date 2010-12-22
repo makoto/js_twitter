@@ -3,11 +3,36 @@
 Sample twitter app based on js.
 This is just a sample app to practice how to organize javascript
 
-## Lessons learnt
+## Functionality
 
-- View functions (which touches DOM) has to be executed after document is ready.
+- You type what you did.
+- When tweet is submitted, it updates status.
+- It also increases number of tweets at dashboard.
+- Currently the data is all in memory.
 
-## List of Questions while building.
+## The approach
+
+- "Tweet" model contains list of tweets.
+- When a tweet is added, Model tells custom event handler to trigger a event 
+
+    EventHandler.trigger("added");
+
+- Status/Dashboard views binds actions for "added" event.
+
+    EventHandler.bind("added",function(){...})
+
+- InputView binds to DOM element so that it calls model on jQuery "click" event.
+
+    Tweets.add(tweet);
+
+- EventHandler is just a hash of arrays. 
+
+## 
+
+## Lessons learnt: Object construction
+
+[js-model](https://github.com/benpickles/js-model) provides a lot of way for object construction and event handling, but I thought I will implement something basic by myself. One thing I got confused a most is a various way to handle object construction. 
+
 
 ### pros and cons of various Object creation methods
 
@@ -145,5 +170,10 @@ vs
 - Basically same as Tweets5 pattern.
 - Can have private variables and methods
 - function is only executed once.
+
+## What's next ?
+
+- How to combine this with [Sammy](http://code.quirkey.com/sammy/) like RESFTful paradigm and template systems.
+- How to handle persistency (again, js-model does provide a lot on this)
 
 
