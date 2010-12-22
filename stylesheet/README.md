@@ -3,6 +3,9 @@
 Sample twitter app based on js.
 
 
+## Lessons learnt
+- View functions (which touches DOM) has to be executed after document is ready.
+
 ## List of Questions while building.
 
 ### pros and cons of Object layout
@@ -65,3 +68,5 @@ vs
     Tweets.add("hello")
 
 - Raises error if event_handler.js is not included before tweets.js
+
+
