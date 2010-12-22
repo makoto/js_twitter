@@ -8,13 +8,10 @@ EventHandler.trigger = function(name) {
   };
 }
 EventHandler.bind = function(name, callback) {
-  console.log(name);
-  // var event = this.events[name]
   if (!this.events[name]) {
     this.events[name] = [];
   };
   this.events[name].push(callback);
-  console.log(this.events);
 }
 
 // Example bind
