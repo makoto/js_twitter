@@ -1,11 +1,20 @@
 var EventHandler = {events:{}};
 EventHandler.trigger = function(name) {
-  if (event = this.events[name]) {
-    event();
+  var event = this.events[name]
+  if (event) {
+    for (var i=0; i < event.length; i++) {
+      event[i]();
+    };
   };
 }
 EventHandler.bind = function(name, callback) {
-  this.events[name] = callback;
+  console.log(name);
+  // var event = this.events[name]
+  if (!this.events[name]) {
+    this.events[name] = [];
+  };
+  this.events[name].push(callback);
+  console.log(this.events);
 }
 
 // Example bind
