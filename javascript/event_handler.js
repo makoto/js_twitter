@@ -1,9 +1,9 @@
 var EventHandler = {events:{}};
-EventHandler.trigger = function(name) {
+EventHandler.trigger = function(name, args) {
   var event = this.events[name]
   if (event) {
     for (var i=0; i < event.length; i++) {
-      event[i]();
+      event[i].apply(event[i], args);
     };
   };
 }

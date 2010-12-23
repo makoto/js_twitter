@@ -3,7 +3,7 @@ Tweets = (function(){
   var tweets = {
     add: function (tweet) {
       collections.push(tweet);
-      EventHandler.trigger("added");
+      EventHandler.trigger("added", [tweet]);
     },
     last: function () {
       return collections.slice(-1)[0];
